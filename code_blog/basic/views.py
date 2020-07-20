@@ -11,28 +11,28 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 class AboutView(TemplateView):
     template_name = 'about.html'
 
-class CodesListView(ListView):
+class CodeListView(ListView):
     model = codes
 
     def get_queryset(self):
         return codes.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
-class CodesDetailView(DetailView):
+class CodeDetailView(DetailView):
     model = codes
 
-class CreateCodeView(CreateView, LoginRequiredMixin):
+class CodeCreateView(CreateView, LoginRequiredMixin):
     login_url = '/login/'
     redirect_field_name = 'basic/code_detail.html'
     form_class = CodeForm
     model = codes
 
-class UpdateCodeView(UpdateView, LoginRequiredMixin):
+class CodeUpdateView(UpdateView, LoginRequiredMixin):
     login_url = '/login/'
     redirect_field_name = 'basic/code_detail.html'
     form_class = CodeForm
     model = codes
 
-class DeleteCodeView(DeleteView, LoginRequiredMixin):
+class CodeDeleteView(DeleteView, LoginRequiredMixin):
     model = codes
     success_url = reverse_lazy('code_list.html')
 
