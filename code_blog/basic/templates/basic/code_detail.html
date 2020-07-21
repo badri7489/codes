@@ -1,5 +1,23 @@
-{% extends "base.html" %}
+{% extends "basic/base.html" %}
 
 {% block content %}
-    
+    <h1 class="codetitle loader">{{ codes.title }}</h1>
+    {% if codes.published_date %}
+        <div class="date codedate">
+            {{ codes.published_date }}
+        </div>
+    {% else %}
+        <a class="btn btn-success" href="{% url 'code_publish' pk=codes.pk %}">Publish</a>
+    {% endif %}
+
+    <p class="codecontent">{{ codes.text|safe|linebreakbr }}</p>
+
+    {% if user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'code_edit' pk=codes.pk %}">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <a class="btn btn-primary" href="{% url 'code_remove' pk=codes.pk %}">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+    {% endif %}
 {% endblock %}

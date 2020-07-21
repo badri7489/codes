@@ -1,13 +1,15 @@
-{% extends "base.html" %}
+{% extends "basic/base.html" %}
 
 {% block content %}
-    {% for code in code_list %}
-        <div class="code">
-            <h1><a href="{% url 'code_detail' pk=code.pk %}">{{ code.title }}</a></h1>
-            <div class="date">
-                <p>Published On: {{ code.published_date|date:"D M Y" }}</p>
+    <div class="centerstage">
+        {% for code in code_list %}
+            <div class="code">
+                <h1><a href="{% url 'code_detail' pk=code.pk %}">{{ code.title }}</a></h1>
+                <div class="date">
+                    <p>Published On: {{ code.published_date|date:"D M Y" }}</p>
+                </div>
+                <h4>Author: {{ code.author }}</h4>
             </div>
-            <h4>Author: {{ code.author }}</h4>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
