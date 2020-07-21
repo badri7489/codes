@@ -10,14 +10,14 @@
         <a class="btn btn-success" href="{% url 'code_publish' pk=codes.pk %}">Publish</a>
     {% endif %}
 
-    <p class="codecontent">{{ codes.text|safe|linebreakbr }}</p>
+    <p class="codecontent">{{ codes.text|safe|linebreaksbr }}</p>
 
     {% if user.is_authenticated %}
         <a class="btn btn-primary" href="{% url 'code_edit' pk=codes.pk %}">
-            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="glyphicon glyphicon-pencil">Update</span>
         </a>
         <a class="btn btn-primary" href="{% url 'code_remove' pk=codes.pk %}">
-            <span class="glyphicon glyphicon-trash"></span>
+            <span class="glyphicon glyphicon-trash">Remove</span>
         </a>
     {% endif %}
 {% endblock %}

@@ -34,7 +34,7 @@ class CodeUpdateView(UpdateView, LoginRequiredMixin):
 
 class CodeDeleteView(DeleteView, LoginRequiredMixin):
     model = codes
-    success_url = reverse_lazy('code_list.html')
+    success_url = reverse_lazy('code_list')
 
 class DraftListView(ListView, LoginRequiredMixin):
     login_url = '/login/'

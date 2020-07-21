@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for code in codes %}
-        <div class="post">
+        <div class="code">
             
             <p class="date">Created: {{ code.created_date|date:"D M Y" }}</p>
             <h1><a href="{% url 'code_detail' pk=code.pk %}">{{ code.title }}</a></h1>
