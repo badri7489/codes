@@ -22,13 +22,13 @@ class CodeDetailView(DetailView):
 
 class CodeCreateView(CreateView, LoginRequiredMixin):
     login_url = '/login/'
-    redirect_field_name = 'basic/code_detail.html'
+    redirect_field_name = 'basic/codes_detail.html'
     form_class = CodeForm
     model = codes
 
 class CodeUpdateView(UpdateView, LoginRequiredMixin):
     login_url = '/login/'
-    redirect_field_name = 'basic/code_detail.html'
+    redirect_field_name = 'basic/codes_detail.html'
     form_class = CodeForm
     model = codes
 
@@ -38,7 +38,7 @@ class CodeDeleteView(DeleteView, LoginRequiredMixin):
 
 class DraftListView(ListView, LoginRequiredMixin):
     login_url = '/login/'
-    redirect_field_name = 'basic/code_detail.html'
+    redirect_field_name = 'basic/codes_draft.html'
     model = codes
 
     def get_queryset(self):

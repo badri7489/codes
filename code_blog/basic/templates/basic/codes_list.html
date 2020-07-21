@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="centerstage">
-        {% for code in code_list %}
+        {% for code in codes_list %}
             <div class="code">
                 <h1><a href="{% url 'code_detail' pk=code.pk %}">{{ code.title }}</a></h1>
                 <div class="date">
